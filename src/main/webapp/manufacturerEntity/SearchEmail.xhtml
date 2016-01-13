@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title></title>
+        
+    </h:head>
+    <body>
+        <ui:composition> 
+            
+            <p:dialog id="ManufacturerEmailSearchDlg" widgetVar="ManufacturerEmailSearchDialog" 
+             modal="true" resizable="false" appendTo="@(body)" header="Search">
+                <h:form id="ManufacturerEmailSearchForm">
+                    <h:panelGroup id="display">
+                        <p:panelGrid columns="2">
+                            
+                            <p:outputLabel value="#{manufacturerEntityController.searchLabel}" />
+                            
+                            
+                            <p:inputText id="email" value="#{manufacturerEntityController.email}" 
+                                          title="Find By Name" required="true"/>
+                           
+                            
+                        </p:panelGrid>
+                        
+                        <p:commandButton actionListener="#{manufacturerEntityController.searchEmail()}"
+                                         value="#{manufacturer.Search}"  
+                                         update="display,:ManufacturerEntityListForm:datalist,:growl"
+                                         oncomplete="handleSubmit(args,'ManufacturerEmailSearchDialog');" />
+                                         
+                        <p:commandButton value="#{product.Cancel}" onclick="ManufacturerEmailSearchDialog.hide()"/>
+                        
+                    </h:panelGroup>
+                </h:form>
+            </p:dialog>
+        </ui:composition>
+    </body>
+</html>
+
+

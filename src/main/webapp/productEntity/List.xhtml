@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{product.ListProductEntityTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="ProductEntityListForm">
+    
+                <p:menubar>                 
+                    <p:submenu label="Filtered Search">
+                        <p:menuitem value="By Manufacturer"
+                                    actionListener="#{productEntityController.prepareSearch(1)}"
+                                    update=":growl,:ProductEntitySearchForm"
+                                    oncomplete="PF('ProductEntitySearchDialog').show()"/>
+                        <p:menuitem value="By Product Code"
+                                    actionListener="#{productEntityController.prepareSearch(2)}"
+                                    update=":growl,:ProductEntitySearchForm"
+                                    oncomplete="PF('ProductEntitySearchDialog').show()"/>
+                        <p:menuitem value="All Products"
+                                    actionListener="#{productEntityController.prepareSearch(3)}"
+                                    update=":growl,datalist"/>
+                        <p:menuitem value="All Available"
+                                    actionListener="#{productEntityController.prepareSearch(4)}"
+                                    update=":growl,datalist"/> 
+                        <p:menuitem value="By Quantity-On-Hand Limit"
+                                    actionListener="#{productEntityController.prepareSearchQOH()}"
+                                    update=":growl,:QuantityOnHandSearchForm"
+                                    oncomplete="PF('QuantityOnHandSearchDialog').show()"/> 
+                    </p:submenu>
+                </p:menubar>
+
+                <p:panel header="#{product.ListProductEntityTitle}">
+                    <p:dataTable id="datalist" value="#{productEntityController.items}" var="item"
+                                 selectionMode="single" selection="#{productEntityController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.productId}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{product.ListProductEntityTitle_productId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.productId}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{product.ListProductEntityTitle_purchaseCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.purchaseCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{product.ListProductEntityTitle_quantityOnHand}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.quantityOnHand}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{product.ListProductEntityTitle_markup}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.markup}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{product.ListProductEntityTitle_available}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.available}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{product.ListProductEntityTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{product.ListProductEntityTitle_manufacturerId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.manufacturerId.name}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{product.ListProductEntityTitle_productCode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.productCode}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{product.Create}" actionListener="#{productEntityController.prepareCreate}" update=":ProductEntityCreateForm" oncomplete="PF('ProductEntityCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{product.View}" update=":ProductEntityViewForm" oncomplete="PF('ProductEntityViewDialog').show()" disabled="#{empty productEntityController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{product.Edit}" update=":ProductEntityEditForm" oncomplete="PF('ProductEntityEditDialog').show()" disabled="#{empty productEntityController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{product.Delete}" actionListener="#{productEntityController.destroy}" update=":growl,datalist" disabled="#{empty productEntityController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="QuantitySearch.xhtml"/>
+            <ui:include src="SearchItems.xhtml"/>  
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProductEntityCreateDlg" widgetVar="ProductEntityCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{product.CreateProductEntityTitle}">
+            <h:form id="ProductEntityCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{productEntityController.selected != null}">
+                        <p:outputLabel value="#{product.CreateProductEntityLabel_productId}" for="productId" />
+                        <p:inputText id="productId" value="#{productEntityController.selected.productId}" title="#{product.CreateProductEntityTitle_productId}" required="true" requiredMessage="#{product.CreateProductEntityRequiredMessage_productId}"/>
+                        <p:outputLabel value="#{product.CreateProductEntityLabel_purchaseCost}" for="purchaseCost" />
+                        <p:inputText id="purchaseCost" value="#{productEntityController.selected.purchaseCost}" title="#{product.CreateProductEntityTitle_purchaseCost}" />
+                        <p:outputLabel value="#{product.CreateProductEntityLabel_quantityOnHand}" for="quantityOnHand" />
+                        <p:inputText id="quantityOnHand" value="#{productEntityController.selected.quantityOnHand}" title="#{product.CreateProductEntityTitle_quantityOnHand}" />
+                        <p:outputLabel value="#{product.CreateProductEntityLabel_markup}" for="markup" />
+                        <p:inputText id="markup" value="#{productEntityController.selected.markup}" title="#{product.CreateProductEntityTitle_markup}" />
+                        <p:outputLabel value="#{product.CreateProductEntityLabel_available}" for="available" />
+                        <p:inputText id="available" value="#{productEntityController.selected.available}" title="#{product.CreateProductEntityTitle_available}" />
+                        <p:outputLabel value="#{product.CreateProductEntityLabel_description}" for="description" />
+                        <p:inputText id="description" value="#{productEntityController.selected.description}" title="#{product.CreateProductEntityTitle_description}" />
+                        
+                        <p:outputLabel value="#{product.CreateProductEntityLabel_manufacturerId}" for="manufacturerId" />
+                        <p:selectOneMenu id="manufacturerId" value="#{productEntityController.selected.manufacturerId}" required="true" requiredMessage="#{product.EditProductEntityRequiredMessage_manufacturerId}">
+                            <f:selectItems value="#{manufacturerEntityController.itemsAvailableSelectOne}"
+                                           var="manufacturerIdItem"
+                                           itemValue="#{manufacturerIdItem}"/>
+                        </p:selectOneMenu>
+                        
+                        <p:outputLabel value="#{product.CreateProductEntityLabel_productCode}" for="productCode" />
+                        <p:selectOneMenu id="productCode" value="#{productEntityController.selected.productCode}" required="true" requiredMessage="#{product.EditProductEntityRequiredMessage_productCode}">
+                            <f:selectItems value="#{productCodeEntityController.itemsAvailableSelectOne}"
+                                           var="productCodeItem"
+                                           itemValue="#{productCodeItem}"/>
+                        </p:selectOneMenu>
+                        
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{productEntityController.create}" value="#{product.Save}" update="display,:ProductEntityListForm:datalist,:growl" oncomplete="handleSubmit(args,'ProductEntityCreateDialog');"/>
+                    <p:commandButton value="#{product.Cancel}" onclick="ProductEntityCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
