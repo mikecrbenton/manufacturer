@@ -2,7 +2,7 @@
 CSC 280 Software Engineering // Final project incorporating: Regular Expressions, JUnit Testing, and MVC
 
 ## Project Directive:
-The Manufacturer project is a multi-week assignment working in Netbeans IDE to gain a basic understanding of several concepts:
+The Manufacturer project is a multi-week assignment working in Netbeans IDE to gain a basic understanding of several JEE concepts:
 
 ### Assignment 1:
 The objective of this assignment is gain familiarity with JEE JPA Entity Beans.  You will create a JEE Entity Bean from a database table in local Netbeans Derby database.  An *entity bean* is a POJO (Plain Old Java Object) with annotations that represent a business object in a persistant storage mechanism. The entity that will be created will represent a MANUFACTURER table in the sample Derby database.  
@@ -18,8 +18,8 @@ The objective of this assignment is to familiarize you with JUnit testing of a J
 #### Code Written:  
 * manufacturer/src/test/java/org/usd/csci/manufacturer/**ManufacturerEntityTest.java**
   * Write test methods for each validation rule -both valid and invalid
-    * testSetManufacturerId() - Line 55           testInvalidSetZip() - Line 271  
-    * testSetName() - Line 71                     testInvalidSetZip2() - Line 285
+    * testSetManufacturerId() - Line 55           * testInvalidSetZip() - Line 271  
+    * testSetName() - Line 71                     * testInvalidSetZip2() - Line 285
     * testInvalidSetName() - Line 85              testSetPhone() - Line 298
     * testInvalidSetName2() - Line 99             testInvalidSetPhone() - Line 312
     * testSetAddressline1() - Line 112            testInvalidSetPhone2() - Line 326
