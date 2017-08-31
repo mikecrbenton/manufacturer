@@ -46,8 +46,8 @@ The purpose of this assignment is to introduce the creation of Enterprise Java S
   * Create findByEmail() method - finds a record by email - Line 198
   * Create findByCityAndState() - finds a list of records by city & state - Line 229
 
-### Assignment 4:
-
+### Assignment 4: JUnit Test for Session Bean Facade
+The purpose of this assignment is to introduce JUnit testing of Session Bean Facades and how to design tests for the façade methods. The session bean façade tests that you create will test the Create, Read, Update, and Delete functionality that you implemented in the ManufacturerEntityFacade from assignment 3. It is important to recall that each time a test is executed, it should pass regardless of the current status of the database.
 #### Code Written:  
 * manufacturer/src/test/java/org/usd/csci/manufacturer/**ManufacturerEntityFacadeTest.java**
   * Create tests for overridden create() and edit() methods
@@ -66,11 +66,20 @@ The purpose of this assignment is to introduce the creation of Enterprise Java S
   * Create tests for findByCityAndState() method
     * testFindByCityAndState() - Line 548
     * testFindByCityAndStateNotInDatabase() - Line 595
+    
+### Assignment 5: Creating (JSF) Java Server Faces for Entity
+For this assignment you are going to create a Java Server Faces Controller and a draft JSF UI for your entity bean. This will provide users with a UI to List, Create, Edit, and Delete your entities. Make certain that you reference JSF for Entities lecture 
+#### Code Written:
+* manufacturer/src/main/java/org/usd/csci/manufacturer/jsf/**ManufacturerEntityController.java**
+  * Modify the persist() method to process separate actions for UPDATE and CREATE - Line 218
+
+### Assignment 6: Complex Entity Bean / JUnit Test
+The objective of this assignment is to gain familiarity creating JEE JPA Entity Beans that have relationships with other entities.  You will create a JEE Entity Bean from a database table that has foreign keys to two other tables.  The entity created in this exercise will represent the PRODUCT table in the sample Derby database. The PRODUCT table has a Many-to-One relationship with the MANUFACTURER table and a Many-to-One relationship with the PROCUCT_CODE table. When you create the ProductEntity in NetBeans you will specify that related tables should be used. This will cause NetBeans to create the ProductCodeEntity in addition to the ProductEntity. It will not create the ManufacturerEntity because it should already exist.
+After creating the ProductEntity class, you will create a JUnit test for the entity. This will require you to create a Session Bean Façade for the ProductCodeEntity. 
 #### Code Written:    
 * manufacturer/src/main/java/org/usd/csci/product/**ProductCodeEntity.java**
   * Modify Product Code to take 2 uppercase letters - Line 43
   * Modify Discount Code to take character A -Z Uppercase - Line 103
-#### Code Written:  
 * manufacturer/src/main/java/org/usd/csci/product/**ProductEntity.java**
   * Add verification and business rules:
     * Purchase cost greater than 0 - Line 56
@@ -80,10 +89,50 @@ The purpose of this assignment is to introduce the creation of Enterprise Java S
   * Override compareTo(), products are equal if id's are equal - Line 268
   * Override toString(), return product id appended to product description - Line 286
   * Add @NamedQuery for additional methods - Line 40-43
-#### Code Written:
 * manufacturer/src/main/java/org/usd/csci/product/**ProductCodeEntityFacade.java**
   * Override create() and edit() methods to verify Product Code is unique - Line 42, Line 77
-#### Code Written:
+* manufacturer/src/test/java/org/usd/csci/product/**ProductEntityTest.java**
+  * Create tests for setPurchaseCost() method
+    * testSetPurchaseCost() - Line 100
+    * testNegativeSetPurchaseCost() - Line 118
+  * Create tests for setQuantityOnHand() method
+    * testSetQuantityOnHand()
+    * testNegativeSetQuantityOnHand()
+  * Create tests for setMarkup() method
+    * testSetMarkup()
+    * testNegativeSetMarkup()
+    * testGreaterSetMarkup()
+  * Create tests for setAvailable() method
+    * testSetAvailableTrue()
+    * testSetAvailableFalse()
+    * testSetAvailableIncorrect()
+  * Create tests for setDescription() method
+    * testSetDescription()
+    * testSetDescriptionInvalid()
+  * Create test for setManufacturerId() method
+  * Create test for setProductCode() method
+  * Create tests for setDiscountCode() method
+    * testSetDiscountCode()
+    * testSetInvalidDiscountCode()
+    
+### Assignment 7: Creating/Testing a JEE Session Facade for Complex Entity
+The purpose of this assignment is to create JEE Session Facades to manage the complex entity beans created in assignment 11. It is assumed that you have develop a successful maven project with the following source code:
+* Source Packages
+  * org.usd.csci.manufacturer
+    * ManufacturerEntity.java
+    * ManufacturerEntityFacade.java
+  * org.usd.csci.product
+    * ProductCodeEntity.java
+    * ProductCodeEntityFacade.java
+    * ProductEntity.java
+  * org.usd.csci.manufacturer.jsf
+    * ManufacturerEntityController.java
+  * org.usd.csci.utility
+    * AbstractFacade.java
+    * InvalidEntityException.java
+ * Test Packages
+You will develop a session bean ProductEntityFacade class that will manage your ProductEntity class. You will override the create() and edit() methods to enforce the business rules. You will also add additional find methods. You are then to create a JUnit test class that will test your session facade. 
+  #### Code Written:
 * manufacturer/src/main/java/org/usd/csci/product/**ProductEntityFacade.java**
   * Override the create(), and edit() methods - add business rules - Line 47, Line 102
   * Implement findAllByProduct() method - Line 161
@@ -108,6 +157,25 @@ The purpose of this assignment is to introduce the creation of Enterprise Java S
   * Create test for findAllByManufacturer() - Line 479
   * Create test for FindUnderQOHLimit() - Line 510
   * Create test for findAllAvailable() - Line 541
+### Assignment 8: Creating JSF for Complex Entity
+The purpose of this assignment is to create JSF to provide user interface for complex entity beans created in assignment 7. It is assumed that you have develop a successful maven project with the following source code:
+* Source Packages
+  * org.usd.csci.manufacturer
+    * ManufacturerEntity.java
+    * ManufacturerEntityFacade.java
+  * org.usd.csci.manufacturer.jsf
+    * ManufacturerEntityController.java
+  * org.usd.csci.manufacturer.jsf.util
+  * org.usd.csci.product
+    * ProductCodeEntity.java
+    * ProductCodeEntityFacade.java
+    * ProductEntity.java
+    * ProductEntityFacade.java
+  * org.usd.csci.utility
+    * AbstractFacade.java
+    * InvalidEntityException.java
+ * Test Packages
+You will develop a JSF pages that will provide a Graphical User Interface (GUI) for users. It will allow them to create, read, update, and delete (CRUD) Product Codes and Products. It will also allow users to search for products based on different search criteria. It is important that you refer to the lecture 12 – JSF for Complex Entities in completing this assignment. 
 #### Code Written:  
 * manufacturer/src/main/webapp/productEntity/**List.xhtml**
   * Add menu with search options for: By Manufacturer, By Product Code
