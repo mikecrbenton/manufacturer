@@ -4,7 +4,7 @@ CSC 280 Software Engineering // Final project incorporating: Regular Expressions
 ## Project Directive:
 The Manufacturer project is a multi-week assignment working in Netbeans IDE to gain a basic understanding of several JEE concepts:
 
-### Assignment 1:
+### Assignment 1: Creating an Entity from a Database Table 
 The objective of this assignment is gain familiarity with JEE JPA Entity Beans.  You will create a JEE Entity Bean from a database table in local Netbeans Derby database.  An *entity bean* is a POJO (Plain Old Java Object) with annotations that represent a business object in a persistant storage mechanism. The entity that will be created will represent a MANUFACTURER table in the sample Derby database.  
 #### Code Written:
 * manufacturer/src/main/java/org/usd/csci/manufacturer/**ManufacturerEntity.java**
@@ -13,7 +13,7 @@ The objective of this assignment is gain familiarity with JEE JPA Entity Beans. 
   * Override the compareTo() method : A Manufacturer is equal if there names are equal - Line 375
   * Modify regular expressions according to assignment directives - Lines 49-110
   
-### Assignment 2:
+### Assignment 2: JUnit Test for Entity
 The objective of this assignment is to familiarize you with JUnit testing of a JEE Entity.  You will create a JUnit test from an existing class. In this exercise, you will be testing your Manufacturer Entity from assignment 1.
 #### Code Written:  
 * manufacturer/src/test/java/org/usd/csci/manufacturer/**ManufacturerEntityTest.java**
@@ -35,7 +35,7 @@ The objective of this assignment is to familiarize you with JUnit testing of a J
     * testSetZip() - Line 257
   * Create test methods for compareTo(), equals() and toString() methods
   
-### Assignment 3:
+### Assignment 3: Creating a Session Bean
 The purpose of this assignment is to introduce the creation of Enterprise Java Session Beans and how to develop them to be used as facades to entity beans. The session bean you create will be used to manage your manager entities. You will Create, Read, Update, and Delete(CRUD) entiites from the sample database.
 #### Code Written:  
 * manufacturer/src/main/java/org/usd/csci/utility/**InvalidEntityException.java**
