@@ -18,7 +18,8 @@ The objective of this assignment is to familiarize you with JUnit testing of a J
 #### Code Written:  
 * manufacturer/src/test/java/org/usd/csci/manufacturer/**ManufacturerEntityTest.java**
   * Write test methods for each validation rule -both valid and invalid
-    * testSetManufacturerId() - Line 55           * testInvalidSetZip() - Line 271  
+    ------------------------------------------|------------------------------------
+    testSetManufacturerId() - Line 55         |  testInvalidSetZip() - Line 271  
     * testSetName() - Line 71                     * testInvalidSetZip2() - Line 285
     * testInvalidSetName() - Line 85              testSetPhone() - Line 298
     * testInvalidSetName2() - Line 99             testInvalidSetPhone() - Line 312
