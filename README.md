@@ -7,7 +7,7 @@ The Manufacturer project is a multi-week assignment working in Netbeans IDE to g
 ### Assignment 1: Creating an Entity from a Database Table 
 The objective of this assignment is gain familiarity with JEE JPA Entity Beans.  You will create a JEE Entity Bean from a database table in local Netbeans Derby database.  An *entity bean* is a POJO (Plain Old Java Object) with annotations that represent a business object in a persistant storage mechanism. The entity that will be created will represent a MANUFACTURER table in the sample Derby database.  
 #### Code Written:
-* manufacturer/src/main/java/org/usd/csci/manufacturer/**ManufacturerEntity.java**
+* https://github.com/mikecrbenton/manufacturer/src/main/java/org/usd/csci/manufacturer/**ManufacturerEntity.java**
   * Override the equals() and hashcode() methods : A Manufacturer is equal is their names are equal - Line 353
   * Override the toString() method : Return the Manufacturer's name - Line 385
   * Override the compareTo() method : A Manufacturer is equal if there names are equal - Line 375
