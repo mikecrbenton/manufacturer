@@ -36,17 +36,18 @@ The objective of this assignment is to familiarize you with JUnit testing of a J
   * Create test methods for compareTo(), equals() and toString() methods
   
 ### Assignment 3:
-
-  
+The purpose of this assignment is to introduce the creation of Enterprise Java Session Beans and how to develop them to be used as facades to entity beans. The session bean you create will be used to manage your manager entities. You will Create, Read, Update, and Delete(CRUD) entiites from the sample database.
 #### Code Written:  
 * manufacturer/src/main/java/org/usd/csci/utility/**InvalidEntityException.java**
   * Extend an Exception class with an overloaded constructor() that recieves a String
-#### Code Written:  
 * manufacturer/src/main/java/org/usd/csci/manufacturer/**ManufacturerEntityFacade.java**
   * Override AbstractFacade create() and edit() methods.  Verify for correct information - Lines 41, 92
   * Create findByName() method - finds a record by name - Line 137
   * Create findByEmail() method - finds a record by email - Line 198
   * Create findByCityAndState() - finds a list of records by city & state - Line 229
+
+### Assignment 4:
+
 #### Code Written:  
 * manufacturer/src/test/java/org/usd/csci/manufacturer/**ManufacturerEntityFacadeTest.java**
   * Create tests for overridden create() and edit() methods
