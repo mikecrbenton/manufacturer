@@ -18,21 +18,20 @@ The objective of this assignment is to familiarize you with JUnit testing of a J
 #### Code Written:  
 * manufacturer/src/test/java/org/usd/csci/manufacturer/**ManufacturerEntityTest.java**
   * Write test methods for each validation rule -both valid and invalid
-    ------------------------------------------|------------------------------------
-    testSetManufacturerId() - Line 55         |  testInvalidSetZip() - Line 271  
-    * testSetName() - Line 71                     * testInvalidSetZip2() - Line 285
-    * testInvalidSetName() - Line 85              testSetPhone() - Line 298
-    * testInvalidSetName2() - Line 99             testInvalidSetPhone() - Line 312
-    * testSetAddressline1() - Line 112            testInvalidSetPhone2() - Line 326
-    * testSetInvalidAddressline1() - 126          testSetFax() - Line 339
-    * testSetAddressline2() - Line 140            testInvalidSetFax() - Line 353
-    * testSetInvalidAddressline2() - Line 154     testInvalidSetFax2() - Line 367
-    * testSetCity() - Line 168                    testSetEmail() - Line 380
-    * testInvalidSetCity() - Line 182             testInvalidSetEmail() - Line 394
-    * testInvalidSetCity2() - Line 196            testInvalidSetEmail2() - Line 408
-    * testSetState() - Line 210                   testSetRep() - Line 421
-    * testSetInvalidState() - Line 224            testInvalidSetRep() - Line 435
-    * testSetInvalidState2() - Line 244           testInvalidSetRep2() - Line 449
+    * testSetManufacturerId() - Line 55___________testInvalidSetZip() - Line 271  
+    * testSetName() - Line 71_____________________testInvalidSetZip2() - Line 285
+    * testInvalidSetName() - Line 85______________testSetPhone() - Line 298
+    * testInvalidSetName2() - Line 99_____________testInvalidSetPhone() - Line 312
+    * testSetAddressline1() - Line 112____________testInvalidSetPhone2() - Line 326
+    * testSetInvalidAddressline1() - 126__________testSetFax() - Line 339
+    * testSetAddressline2() - Line 140____________testInvalidSetFax() - Line 353
+    * testSetInvalidAddressline2() - Line 154_____testInvalidSetFax2() - Line 367
+    * testSetCity() - Line 168____________________testSetEmail() - Line 380
+    * testInvalidSetCity() - Line 182_____________testInvalidSetEmail() - Line 394
+    * testInvalidSetCity2() - Line 196____________testInvalidSetEmail2() - Line 408
+    * testSetState() - Line 210___________________testSetRep() - Line 421
+    * testSetInvalidState() - Line 224____________testInvalidSetRep() - Line 435
+    * testSetInvalidState2() - Line 244___________testInvalidSetRep2() - Line 449
     * testSetZip() - Line 257
   * Create test methods for compareTo(), equals() and toString() methods
   
