@@ -1,5 +1,5 @@
 # Manufacturer - Final Project
-CSC 280 Software Engineering // Final project incorporating: Regular Expressions, JUnit Testing, and MVC
+CSC 280 Software Engineering // Final project incorporating: Regular Expressions, JUnit Testing, and MVC.  Much of the project codebase is boilerplate, frameworks and project walkthrough.  All methods, tests and modifications written for the assignment are indexed and labeled under the "Code Written" header for every corresponding section. 
 
 ## Project Directive:
 The Manufacturer project is a multi-week assignment working in Netbeans IDE to gain a basic understanding of several JEE concepts:
